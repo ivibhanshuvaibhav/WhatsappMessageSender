@@ -14,7 +14,7 @@ try:
 
     print "Waiting for QR code to be scanned"
 
-    time.sleep(10)
+    time.sleep(20)
 
     search_path = "//input[@class='input input-search']"
 
@@ -40,12 +40,14 @@ try:
     text_field = driver.find_element_by_xpath(input_path)
 
     i = 0
-    while i < 1:
+    while i < 500:
         text_field.send_keys(chat_message)
         text_field.send_keys(Keys.ENTER)
         i += 1
 
+    print "Completed"
+
 except:
 
-    print "Error occured"
+    print "Error occurred"
     driver.quit()
